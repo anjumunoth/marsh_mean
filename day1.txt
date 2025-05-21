@@ -1,0 +1,30 @@
+javascript :
+	-- client side scripting language 
+	-- embedded in html language as a script tag 
+	-- run -- as part of client's browser
+	-- interpreted language -- executed line by line -- on an exception -- stop abruptly
+	-- why -- create dynamic websites, 
+		--dynamic data(from server, database)
+		-- animation
+		-- add functionalities (interaction, validation, calculation, manipulate DOM)
+		-- request to server and handle the response
+		-- window object 
+	-- nodejs 
+		-- server language -- work like a server
+		-- javascript running outside the browser
+	-- typescript 
+		-- javascript + additional features
+	-- history
+		-- late 1980; 1990's
+		-- versions -- 1,2,3, 4,5
+		-- late 1990's -- js5
+		-- no updates -- 
+		-- from 2000 -oops became prominent
+		-- in 2012-2013 ; angular -- typescript
+		-- 2015 -- next version -- ES6, ES2015
+		-- regular updates, ES7...
+		-- ES -- ECMA script
+	-- weakly typed language( no need to specify the data type during declaration)
+	-- compiled and interpreted
+		--look out for syntax errors
+			-- no errors -- run the code 
