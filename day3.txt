@@ -1,0 +1,224 @@
+Lambda functions 
+	-- change the scope of "this"
+		-- apply, bind, call
+			-- closure functions -- NO
+			-- lambda function -- NO
+
+Module dependencies 
+	-- Common JS 
+		-- export or export default and import
+	-- ES module
+		-- require and module.exports
+	-- difference 
+		-- imports and exports
+	-- Frontend 
+		-- commonjs 
+	-- Backend (nodejs)
+		-- es module
+	-- Set up module 
+		-- tsconfig.json
+			-- compiler options -- module
+	-- transpilation 
+		-- translation + compilation
+	-- loaders
+		-- babel
+		-- webpack
+	-- host the app in a server
+
+Angular :
+	-- client side framework
+		-- used to create the front end application
+			-- separation of concerns
+		-- encapsulate a lot of things
+			-- UI(view), model(data), controller (bridge -- both the view and model are in sync)
+			-- unit testing
+			-- design
+			-- PWA
+			-- services and DI
+	-- React -- library ; Only View part of MVC 
+	-- MVC framework
+		-- Angularjs
+		-- MVVM architecture
+			-- >angular 2.0
+			-- component -- ViewModel
+				-- modularity
+		-- Component based architecture
+	-- two way data binding
+		-- model and view to be in sync
+		-- one way data binding between the view and model; view ->model
+		-- one way data binding between the model and view; model->view
+		-- two way data binding view <-> model
+			
+	-- SPA Single Page App
+		-- one index.html
+			-- based on routing, load different contents in the same html page
+	-- version
+		-- Angularjs, angular2, angular4... angular 19
+		-- Major upgrade from angularjs to angular2
+		-- Incremental updates from angular 2
+		-- new version every 6 months/year
+	-- based on typescript
+	-- easier to understand ,manage, maintain, code
+	-- Routing -- client side routing allowed
+		-- routing
+			-- server side routing
+				-- user -- hit a menu item -- request to the server for the new route-- server as a response will send the contents of the new route(json, html)-- client -- populate the response
+			-- client side routing
+				-- user -- hit a menu item -- front end framework on basis of route, will load the new contents in the same html page from the frontend -- users sees the new page
+		-- User experience
+			-- client side routing -- quicker
+		-- Resources used
+			-- client side -- no network required
+		-- fastness
+			-- client side -- no network required
+		-- Memory 
+			-- server side routing 
+	-- Unit testing of frontend separately 
+		-- jasmine and karma
+	-- changes
+		-- Angular -- keep looking out for changes 
+			-- Based on changes -- UI has to be updated
+	-- Lazy loading 
+		-- when the route is requested, code will be executed(network request for component to be loaded)
+	-- Initial load
+		-- html,css and js files -- loaded in the browser
+		-- app file size 
+			-- large -- will take time to render on screen
+			-- optimise the size 
+		-- compilation	
+		-- angular uses webpack for the foll:
+			-- html,css, ts
+			-- transpiler
+			-- tools 
+				-- uglification and minification
+					-- remove the unwanted white spaces, alias shorter names
+					-- reduce the app size
+			-- changes to the code -- stop the server and restart -- not feasible
+				-- automatic recompilation and refresh my browser
+			-- source map
+			-- webpack 
+				-- configuration management
+	-- Nodejs and npm ; node package manager
+		-- number of modules (pre defined)
+		-- install, uninstall, upgrade 
+	-- package.json, package.lock.json
+		-- project -- number of dependencies, name ,version of dependency
+		-- Config file -- list of dependencies of project
+		-- npm init
+		-- npm install <modulename>
+			-- Add some flags 
+				-g --install it globally
+				--save-dev -- add it as a development dependency
+				--save -- add it as a dependency
+		-- versions
+			-- semantic versioning
+			-- x.y.z
+			-- ^x.y.z
+			-- ~x.y.z
+		--package.lock.json
+			-- read only file
+			-- optional file
+			-- automatically generated
+			-- exact version which got installed and internal dependencies of each module
+			-- moving my project 
+				-- npm install (install the dependencies and internal dependencies based on the same version mentioned in package.lock.jsom)
+		-- node_modules
+			-- generated with npm install
+			-- local copy of various dependencies
+			-- move the project -- will not send the node_modules 
+			-- npm install 
+
+
+Install angular cli
+	-- Version compatibility
+
+	--npm install -g @angular/cli@16
+		-- install it globally
+	-- npm install @angular/cli@16		
+		
+
+css :
+	-- device
+	-- browser
+	-- properties
+Building blocks of Angular app
+	-- Module
+	-- Component
+	-- Services
+	-- Directives
+	-- Pipes
+	
+
+Decorator
+	-- Start with a @
+	-- Add it just before a class, fields,...
+	-- Pass a configuration object -- empty or have some specific fields based on the decorator added
+	-- Has a specific purpose; Modify the element on which it is added
+
+@NgModule
+	-- Add it to a class
+	-- Make the class work like a module
+	-- Pass a obj with the config setup
+	-- 4 important metadata
+		-- providers -- List of services
+		-- declarations -- List of components,directives and pipes
+		-- imports -- List of other modules which this module is dependent on
+		-- bootstrap -- Which component should be bootstrapped
+
+Module in Angular
+	-- Logical collection of components, directives, pipes, services and external modules
+	-- Will not have a UI associated with it
+	-- can have multiple modules 
+	-- 
+
+index.html --> main.ts --> app.module.ts --> app.component
+
+version >=17
+Components
+	-- normal components
+	-- standalone components
+
+<16.x
+	default -- normal components
+>=17 
+	default -- standalone components
+	
+Component in Angular
+	-- Class with @Component decorator
+		-- metadata
+			-- template file or view file
+			-- add style(s) with component
+			-- selector -- tag with which this component is going to be associated
+				-- whenever the selector tag is added in a html page, it will create an instance of component class
+		-- class
+			-- field(s)
+			-- model data
+	-- bridge between view and model
+	-- Modularity
+		-- many components
+
+
+amazon pay module
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
