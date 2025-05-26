@@ -1,0 +1,55 @@
+Interpolation :
+	-- {{}}
+	-- Display some data which will be converted to a string which has been declared in the class
+	-- One way data binding
+	-- Model --> view
+
+Pipes
+	-- Inbuilt pipe and custom pipe
+	-- Transform the data on which it is applied
+
+json -- Transform the data into json format
+
+date 
+	-- Transform the date object/number into a string date
+	-- Can pass some parameters
+	-- first param 
+		-- format
+		-- inbuilt strings
+			-- short,long...
+
+dateObj/number |date:format:timezone:locale
+	
+Parent child components
+DOM -- tree view of the various elements
+	-- one root node
+	-- parent-child relationship
+
+generate a component
+	-- ng generate component <component-name>
+	-- ng g c <component-name>
+	-- Flags
+	-- ng g c header --standalone false --module AppModule
+	-- ng g c header --standalone false --selector first-header
+	-- ng g c header --standalone false --prefix first
+	-- 4 files
+		-- html, css, .ts,.spec
+	-- update app.module.ts
+		-- component will be added to declaration
+
+
+ViewEncapsulation
+	-- None -- css will be applied to the entire application
+	-- Emulated -- css will be applied only to that corresponding component
+	-- ShadowDom --css will be applied to the component and its children
+
+
+List of tasks
+1. Complete the footer component -- use bootstrap
+2. Download 5-7 images of products
+3. Create a productsArr=
+
+
+
+
+	

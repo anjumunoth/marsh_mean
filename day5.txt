@@ -1,0 +1,101 @@
+Directive
+	-- Attribute and structural directives
+	-- Create custom directive
+
+*ngFor 
+	-- Structural directive
+	-- Change the structure of the element
+	-- dynamically create new elements
+	-- Index, first, last element 
+
+*ngIf
+	-- Structural directive
+	-- Satisfy a condition -- add the element to the DOM; false -- not add the element to the DOM
+	-- Requires a Boolean value
+	-- Conditional rendering
+
+
+One way data binding
+	-- Send some data/control from view to the model
+	-- view --> model
+	-- event binding
+	-- wrapper around the inbuilt html events
+	-- ()
+	-- Enclose the angular event in paranthesis 
+	-- Assign the event handler (defined in corresponding component class) to the angular event
+
+Interpolation
+	-- Convert the data to string 
+
+Attribute binding
+	-- One way data binding
+	-- model-->view
+	-- []
+	-- Enclose the attribute within square brackets
+<img src={{productsArr[0].imageUrl}} alt="image of product" />
+<img [src]="productsArr[0].imageUrl" alt="image of product" />
+
+<!-- Attribute binding ; attributes -- which require a non string value -->
+<!-- <input type="button" value="Login" disabled={{isValidated}} /> -->
+<input type="button" value="Login" [disabled]="!isValidated" />
+<p>isValidated: {{isValidated}}</p>
+
+
+Send data from parent to child
+parent --> child
+	--Similar to attribute binding 
+	-- []
+Parent component
+1. In the child opening tag, add the attribute in square brackets
+	-- on the right side of attribute -- add the data;
+Child component
+2. Receive the data from the parent
+	-- @Input decorator
+
+
+Lifecycle of a component
+	-- Mounting phase
+		-- constructor
+			-- First method invoked implicitly when component is mounted (class object is created or class tag is executed)
+			-- lifecycle method
+			-- Always invoked implicitly
+			-- Can't call it explicitly
+			-- Purpose -- To initialise class fields
+			-- Called only once during the entire lifecycle
+		-- Data from the parent is assigned to fields with @Input decorators
+		-- ngOnInit 
+			-- Lifecycle method
+			-- Always invoked implicitly after constructor
+			-- Can't call it explicitly
+			-- Called only once during the entire lifecycle
+			-- Used for initialisations; third party subscriptions, work with timers, get the initial data for the page from the API
+			-- Implement an interface OnInit
+			-- 
+
+			
+			
+	-- Updating phase
+	-- Unmounting phase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
