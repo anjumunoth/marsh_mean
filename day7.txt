@@ -1,0 +1,42 @@
+Custom pipe 
+	-- Apply it on some data
+	-- Works only with Interpolation or structural directives
+	-- Transformation on the data 
+	-- Implicitly
+		-- Apply the pipe
+	-- 
+
+Custom directive
+	-- Directive -- transform the element on which the directive is applied
+	-- ng g directive bgColor
+
+
+
+
+App->Home->PrdoductDisplay->AddToCart
+Bootstrap component - App
+app.component.html -- <app-home></app-home><app-footer></app-footer>
+home.component.html -- <app-pd></app-pd>
+pd.compoenent.html --- <app-atc></app-atc>
+
+
+Console:
+1. App's constructor, ngOnChanges, nogOnIt -- DOm will be rendered
+	--Home's constructor,ngonChanges,ngOnInit -- home.component.html					
+		-- pd'lifecycle methods
+			-- 
+
+
+Two way data binding
+	-- Binding in both the directions
+	-- Keeping the model and view in sync
+	-- [()] -- 
+	-- ngModel
+		-- FormsModule
+	-- Works with form elements and ___________
+
+
+
+
+
+

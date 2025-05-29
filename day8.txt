@@ -1,0 +1,42 @@
+Forms
+	--Template driven forms
+		-- Useful for simple forms
+		-- Complex in managing, unit testing
+		-- Implicitly -- Behind the hood
+		-- ngModel
+		-- imports metadata in @NgModule decorator FormsModule 
+		-- use directives -- custom validator
+	-- Model driven forms
+		-- Big/complex forms
+		-- Create the form control and form group explicitly
+		-- Unit testing, logic -- very easy
+		-- import metadata in @NgModule decorator ReactiveFormsModule
+		-- Best way of creating a form
+	-- Validations
+		-- Built in validators
+		-- custom validators
+
+6 classes
+dirty, pristine
+touched, untouched
+valid, invalid
+
+dirty 
+	-- true --changed the input value
+	-- false -- not changed the input value
+pristine
+	-- false --changed the input value
+	-- true -- not changed the input value
+
+touched
+	-- true --clicked on the input value and lost focus
+	-- false -- not clicked on the input value and lost focus
+
+touched
+	-- false --clicked on the input value and lost focus
+	-- true -- not clicked on the input value and lost focus
+valid 
+	-- true -- validation is successful
+	-- false -- validation is not successful
+
+
