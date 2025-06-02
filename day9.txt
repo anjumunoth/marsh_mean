@@ -1,0 +1,67 @@
+Angular routing
+	-- client side routing
+	-- click on the menu link -- load the corresponding component
+	-- menu item ; path in the url ;based on the path -- load the corresponding component
+	-- navigate through the code
+	-- ActivatedRoute, Router
+		-- inject 2 services
+	-- create a routes array
+	-- add it at the module level 
+	-- where the component should get loaded
+
+routes array 
+	-- path and corresponding component
+	-- first match  win strategy
+	-- order of the routes elements in the routes array
+		-- specific routes
+		-- general routes
+		-- wildcard route
+
+data via routes
+Router guards
+
+Services :
+	-- Dependency injection
+	-- Singleton classes
+		-- create only one object of the class
+	-- Consumer and provider
+	-- Inject the service
+	-- Provider 
+		-- app level (providedIn: "root")
+			-- available across all modules(all components/directives/pipes in the modules as well)
+		-- module level-- 
+			-- available only in that specific module
+
+		-- component level
+			-- available only in that specific component
+
+	-- injector 
+		-- will look for the instance of the class
+			-- if already present -- provide that instance
+			-- if not there -- create an instance, save it and provide that instance
+	-- components/directive/pipe -- add inject dependencies
+		-- constructor
+			private route:ActivatedRoute
+			use inject method
+	-- implement business logic
+		-- validations
+		-- http request
+	-- shared data across different components/directive/pipe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

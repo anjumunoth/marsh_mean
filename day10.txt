@@ -1,0 +1,263 @@
+Mongodb 
+	-- database
+	-- no-sql database
+		-- dynamic schema 
+			-- 2 rows of the same table -- vary in number of columns, data type of columns and columns
+		-- data -- changed text, images, videos, audios -- unstructured and semi structured
+		-- 4 categories 
+			-- document based, column based, graph based, key value pair
+		-- need not adhere with ACID -- transaction 
+		-- CAP theorem
+			-- consistency, availability, partition tolerance
+			-- Database at a give point of time -- adhere to 2 of 3 principles
+			-- AP ; eventually consistent
+
+	-- stores data in bson format
+		-- json + additional features
+		-- number,string, Boolean,array,date, object;
+		-- int32, int64, decimal,float, ObjectId
+	-- document based db -- data in form of document
+		-- store data in an object 
+	-- provides flexibility in structure of data being stored
+		-- no fixed schema
+			-- columns and data types
+			-- constraints PK, FK, unique, not null, check
+			-- default values
+		-- avoid joins -- performance intensive 
+			-- data model
+				-- embedded data model, reference data model
+		-- denormalization
+		-- memory -- occupy more memory -- more redundancy ; memory has become cheaper over the years
+			16gb -- 1000 (2014)
+			hard drive 1 tb -- 4000 (2025)
+		-- 
+	-- indexes -- primary key index, index on any field(object, array), compound index, sparse , partial , text , geospatial 
+		--fasten the queries
+		-- sparse index -- index on only those rows(records) for which the indexed field is present 
+		-- partial index -- index on basis of condition (take only those rows which satisfy the condition)
+		-- geospatial index -- 
+		-- text index -- text search
+		-- explain
+			-- execution plan
+				-- winning plan and its statictics
+				-- rejected plan(s) and its statistics
+	-- no fixed structure/schema of table
+	-- huge volumes of data
+	-- search is faster
+	-- variety of data -- huge
+	-- work with multiple OS
+	-- replication and sharding
+		-- replication
+			-- store the same data in different servers
+				-- high availability
+			-- one primary server -- both the reads and writes
+			-- multiple secondary server -- handle the reads
+			-- automatic failover
+				-- primary -- fail; election ; eligible secondary becomes the primary
+			--write -- insert query -- directed to primary server-- on primary write will happen-- make an entry about the write operation in its oplog; secondaries will sync with the primary's oplog asynchronously -- perform the write on their data -- eventual consistent
+		-- sharding
+			-- break up the data and store it in different servers
+				-- huge volume of data
+				-- write intensive app -- writes on multiple servers
+					-- create multiple shards
+					-- each shard -- replica set; primary server
+					-- 3 shards -- 3 primary servers -- writes will be faster
+			
+			
+	-- corresponding cloud version -- atlas --gcp,azure or aws or private cloud
+	-- High availability
+	-- aggregation pipeline
+		-- made up of multiple stages/phases
+		-- transform the data 
+		-- performance effective
+	-- no rollback concept ; auto commit 
+	-- replication -- high availability ; accidental deletes-- restore the data ; delayed secondary member -- sync with the primary after a delay
+	
+	
+standalone server -- delete operation -- risk of loss of data; server goes down -- app is unavailable
+Create a collection
+	-- inserting a document
+  -- createCollection()
+	-- while creating the db using compass
+  
+Insertion :
+insertOne()
+	-- insert a single doc
+insertMany()
+	-- insert many doc(s)
+  
+use trainingDb
+	// switch to trainingDb
+  
+show databases
+
+show collections
+
+  
+db.collectionName.insertOne({})
+db.employee.insertOne({empId:101,empName:"sara",salary:76989});
+// Another field will be added automatically _id : ObjectId
+ObjectId -- 12 byte hexadecimal number -- machineId, processId, time interval, counter
+db.employee.insertOne({empId:102,empName:"tara",salary:176989,_id:102});
+
+Note : _id will be unique -- work like my primary key; how does it maintain uniqueness
+		-- whenever the collection gets created -- there is a uniue index created on _id
+    -- index cannot be dropped
+    -- _id index will be dropped when the collection is dropped
+    
+db.collectionName.insertMany([])
+db.employee.insertMany(
+[
+{empId:103,empName:"lara",salary:276989},
+{empId:104,empName:"ram",salary:2989},
+])
+
+db.employee.insertOne({empId:105,empName:"shyam",salary:989});//success
+db.employee.insertOne({empId:105,empName:"shyam",salary:989});//success
+db.employee.insertOne({empName:"shyam",salary:989});//success
+db.employee.insertOne({bookId:101});//success
+db.employee.insertOne({empId:106,empName:"shyam",salary:989,_id:106});//success
+db.employee.insertOne({empId:106,empName:"shyam",salary:989,_id:106});//fail ; unique index 
+db.empolyee.insertOne({empId:107});// create a new collection with empolyee and insert the doc
+
+Select query : 
+
+Shell:
+	db.zipcode.find(where predicate,project predicate);
+  db.zipcode.findOne(where predicate,project predicate);// return 0 or 1 doc
+  
+  db.zipcode.find();//return all docs ; only first 25 will be displayed . type more to see the next 25;
+  db.zipcode.find({state:"MA"});// return the docs which satisfy the condition state="MA"
+
+GUI
+serach bar : where condition
+{state:"MA"}; click on Find;//474
+
+Equality : object : key:value
+
+Relational operators:
+< > <= >= != ==
+
+$gt $lt $gte $lte $ne #eq
+where pop>1000;
+db.zipcode.find({pop:{$gt:1000}});// 21367
+db.zipcode.find({pop:{$lt:1000}});// 7981
+db.zipcode.find({pop:{$gte:1000}});// 
+db.zipcode.find({pop:{$lte:1000}});// 
+
+
+db.employee.insertMany(
+[{empId:101,empName:"Asha",salary:1001,deptId:"D1"},
+{empId:102,empName:"Gaurav",salary:2000,deptId:"D1"},
+{empId:103,empName:"Karan",salary:2000,deptId:"D2"},
+{empId:104,empName:"Kishan",salary:3000,deptId:"D1"},
+{empId:105,empName:"Keshav",salary:3500,deptId:"D2"},
+{empId:106,empName:"Pran",deptId:"D3"},
+{empId:107,empName:"Saurav",salary:null,deptId:"D3"}]
+);
+$ne
+db.employee.find({salary:1001});//1
+db.employee.find({salary:{$ne:1001}});//6 ; total number of docs =7; number of docs salary:1001=1; 7-1=6
+// Logically = 5
+
+docs for which salary is present and !=1001
+{salary:{$exists:true},salary:{$ne:1001}};//6
+{salary:{$exists:true,$ne:1001}};//5
+{$and:[{salary:{$exists:true}},{salary:{$ne:1001}}]} ;// 5
+
+
+$exists -- return a boolean 
+
+Logical operators:
+and or not
+$and $or $not
+
+where pop>1000 and state="MA"
+Syntax:
+db.zipcode.find({
+	$and:[
+  {pop:{$gt:1000}},
+  {state:"MA"}
+  ]
+}).count();
+where pop>1000 or state="MA"
+
+db.zipcode.find({
+	$or:[
+  {pop:{$gt:1000}},
+  {state:"MA"}
+  ]
+})
+
+restuarant which serve the American cuisine
+{cuisine:"American "};//1255
+
+restaurant which are in borough Bronx -- 309
+
+
+{borough:"Bronx"}//309
+
+restaurant which are in borough Bronx and cuisine ="American " --  75 
+Bhushan
+{borough:"Bronx", cuisine:"American ""}
+
+Ashish : 75
+{borough: "Bronx", cuisine:"American "}
+
+//Amol --75
+	$or:[
+  {pop:{$gt:1000}},
+  {state:"MA"}
+  ]
+//Abhishek - 75
+db.restaurant.find({$and:[{borough:"Bronx"},{cuisine:"American "}]})
+
+
+where zipcode=10462
+{"address.zipcode":"10462"}
+
+{"address.zipcode.1":40.848447}
+
+{"grades.grade":"A"};//any one element of grades array has a grade="A";//3759
+{"grades.0.grade":"A"};//0th element of grades should have a grade "A";//3312
+
+// zipocde
+{"loc":{$gt:40}};//docs which have atleast one element which is greater than 40
+{"loc.1":{$gt:40}};
+
+docs for which pop>5000 and they are in a longitude of 42.070206
+{pop:{$gt:5000},"loc.1":42.070206};// answer1 ; this will work provided both the conditions are based on different fields 
+{
+$and:[{
+	pop:{$gt:5000}
+},
+{
+	"loc.1":42.070206
+}
+]};// answer2
+
+Docs which have pop in range 1000 to 5000;// 10191
+{
+$and:[{
+	pop:{$gt:1000}
+},
+{
+	pop:{$lt:5000}
+}
+]};// answer1
+{pop:{$gt:1000,$lt:5000}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
